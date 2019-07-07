@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Crystal Collector </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="jumbotron">
+
+        <div class="text-center">
+
+            <h1> Crystal Collector !</h1>
+
+        </div>
+
+        <br>
+        <p> You will be given a random number at the start of the game.</p>
+        <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your
+            total score.</p>
+        <p>You will win the game by matching your total score to random number, you loose the game if your total score
+            goes above the random number.</p>
+        <p>The value of each crystal is hidden from you until click on it. </p>
+        <p>Each time when the game starts, the game iwll change the value of each crystal.</p>
+
+        <h3>Number: <span id="numberToGuess"> </span> </h3>
+
+        <h3> Wins/Losses: <span id="lossWin"> </span></h3>
+
+        <div class="crystalImage">
+
+            <img id="crystal1"
+                src="https://cdna.artstation.com/p/assets/images/images/003/394/648/large/george-batchvarov-firecrystal-160907.jpg?1473243031&dl=1"
+                alt="crystal one" width="200" height="200">
+
+            <img id="crystal2" src="https://i.pinimg.com/originals/14/16/bd/1416bd3724052582479576fb309387c8.jpg"
+                alt="crystal two" width="200" height="200">
+            <img id="crystal3"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkbTjiqPJRoKtmDsSfFf9ksZ8Svo_PZMxSGU5k0DOAVFudO7Zg"
+                alt="crystal three" width="200" height="200">
+            <img id="crystal4"
+                src="https://cdnb.artstation.com/p/assets/images/images/013/391/327/large/carlos-gonzaga-rock2.jpg?1539371127 "
+                alt="crystal four" width="200" height="200">
+
+        </div>
+
+        <h3>Total Score: <span id="totalScore"> </span></h3>
+
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        reset();
+
+
+        var counter = 0;
+
+
+        var crystal1 = Math.ceil(Math.random() * 12);
+        var crystal2 = Math.ceil(Math.random() * 12);
+        var crystal3 = Math.ceil(Math.random() * 12);
+        var crystal4 = Math.ceil(Math.random() * 12);
+
+
+
+        function reset() {
+            counter = 0;
+            targetNumber = Math.ceil(Math.random() * (120 - 19) + 19);
+            var crystal1 = Math.ceil(Math.random() * 12);
+            var crystal2 = Math.ceil(Math.random() * 12);
+            var crystal3 = Math.ceil(Math.random() * 12);
+            var crystal4 = Math.ceil(Math.random() * 12);
+            console.log("target number is:" + targetNumber)
+            console.log("Cry1 Val:" + crystal1 + " Cry2 Val:" + crystal2 + " Cry3 Val:" + crystal3 + " Cry4 Val:" + crystal4);
+            counter = 0;
+            $("#totalScore").text(counter);
+            $("#numberToGuess").text(targetNumber);
+
+        }
+
+        function reUseableFunc(crystalValue) {
+
+            counter += crystalValue;
+
+            $("#totalScore").text(counter);
+            if (counter === targetNumber) {
+                setTimeout(function () {
+                    alert("You won!");
+
+
+                    reset();
+
+                }, 100)
+
+
+                // add a function to reset the target number 
+
+            } else if (counter >= targetNumber) {
+
+
+                setTimeout(function () {
+                    alert("You lost!");
+
+                    
+                    reset();
+                }, 100)
+
+
+            }
+        }
+
+        $("#crystal1").on("click", function () {
+
+            reUseableFunc(crystal1);
+        })
+
+
+
+        $("#crystal2").on("click", function () {
+
+            reUseableFunc(crystal2);
+        })
+
+
+        $("#crystal3").on("click", function () {
+
+            reUseableFunc(crystal3);
+        })
+
+        $("#crystal4").on("click", function () {
+
+            reUseableFunc(crystal4);
+        })
+             
+
+
+
+    </script>
+
+</body>
+
+</html>
