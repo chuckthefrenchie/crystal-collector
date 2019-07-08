@@ -1,0 +1,54 @@
+
+
+html {
+    background-color: black;
+    text-align: center;
+    
+}
+
+.jumbotron {
+    text-align: center;
+    font-family: 'Macondo Swash Caps', cursive;
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    
+}
+
+.text-center {
+    font-size: 60px;
+    font-weight: bold;
+    padding: 10px;
+    font-family: 'Mountains of Christmas', cursive;
+}
+
+#numberToGuess {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 60px;
+    font-weight: bold;
+
+}
+#target {
+    font-size: 45px;
+    padding: 10px;
+    font-family: 'Mountains of Christmas', cursive;
+}
+#total {
+    font-size: 45px;
+    padding: 10px;
+    font-family: 'Mountains of Christmas', cursive;
+
+}
+#totalScore {
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'Mountains of Christmas', cursive;
+
+}
+.crystalImage {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'Mountains of Christmas', cursive;
+}
+ 
+

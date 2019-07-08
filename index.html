@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Crystal Collector </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="./assets/css/style.css"></link>
+    <link rel="stylesheet" href="./assets/css/reset.css"></link>
+    <link href="https://fonts.googleapis.com/css?family=Barriecito|Gochi+Hand|Handlee|Indie+Flower|Josefin+Sans|Macondo+Swash+Caps|Merienda|Mountains+of+Christmas|Satisfy|Shadows+Into+Light&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -24,11 +28,12 @@
         <p>You will win the game by matching your total score to random number, you loose the game if your total score
             goes above the random number.</p>
         <p>The value of each crystal is hidden from you until click on it. </p>
-        <p>Each time when the game starts, the game iwll change the value of each crystal.</p>
+        <p>Each time when the game starts, the game will change the value of each crystal.</p>
 
-        <h3>Number: <span id="numberToGuess"> </span> </h3>
+        <h3 id = "target">Target number: <span id="numberToGuess"> </span> </h3>
 
-        <h3> Wins/Losses: <span id="lossWin"> </span></h3>
+        <h3> Wins: <span id="wins"> </span></h3>
+        <h3> Losses: <span id="losses"> </span></h3>
 
         <div class="crystalImage">
 
@@ -47,7 +52,9 @@
 
         </div>
 
-        <h3>Total Score: <span id="totalScore"> </span></h3>
+        <h3 id = "total">Total Score: <span id="totalScore"> </span></h3>
+        
+        <!-- <img display="none" class = "modal-toggle" src="/frenchie.gif"> -->
 
     </div>
 
@@ -60,6 +67,9 @@
 
         var counter = 0;
 
+        var wins = 0;
+       
+        var losses = 0;
 
         var crystal1 = Math.ceil(Math.random() * 12);
         var crystal2 = Math.ceil(Math.random() * 12);
@@ -91,6 +101,13 @@
             if (counter === targetNumber) {
                 setTimeout(function () {
                     alert("You won!");
+                    wins++;
+                    $("#wins").html(wins);
+
+                $('.modal-toggle').on('click', function(e){
+            e.preventDefault();
+            $('.modal').toggleClass('is-visible');
+            });
 
 
                     reset();
@@ -105,6 +122,8 @@
 
                 setTimeout(function () {
                     alert("You lost!");
+                    losses++;
+                    $("#losses").html(losses);
 
                     
                     reset();
